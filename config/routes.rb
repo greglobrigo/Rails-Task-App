@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
-  resources :tasks
+Rails.application.routes.draw do 
   root 'welcome#index'
-  resources :categories
+  resources :categories do
+    resources :tasks
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
