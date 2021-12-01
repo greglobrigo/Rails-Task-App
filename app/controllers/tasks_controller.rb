@@ -12,8 +12,9 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/new
-  def new
-    @task = Task.new
+  def new    
+    # @task = Task.new    
+    @task = @category.tasks.build
   end
 
   # GET /tasks/1/edit
@@ -21,17 +22,29 @@ class TasksController < ApplicationController
   end
 
   # POST /tasks or /tasks.json
-  def create
-    @task = Task.new(task_params)
+  # def create    
+  #   @task = Task.new(task_params)
 
-    respond_to do |format|
+  #   respond_to do |format|
+  #     if @task.save
+  #       format.html { redirect_to @category, notice: "Task was successfully created." }
+  #       format.json { render :show, status: :created, location: @task }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @task.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  def create
+    @task = @category.tasks.build(task_params)
+      respond_to do |format|
       if @task.save
-        format.html { redirect_to @category, notice: "Task was successfully created." }
-        format.json { render :show, status: :created, location: @task }
+        # flash[:notice] = "Task was successfully created"
+        format.html {  redirect_to category_path(@category.id), notice: "Task was successfully created." }           
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+          render :new
+      end      
     end
   end
 
