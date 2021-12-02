@@ -1,21 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do  
- 
+RSpec.describe Category, type: :model do   
+  
   context "Validations" do
+
     it '1. Is not valid without a title (nil)' do
-    expect(Category.new(title: nil)).to_not be_valid
+      expect(Category.new(title: nil)).to_not be_valid
     end
 
     it '2. Is not valid if title entered is less than 4 characters' do
       expect(Category.new(title: 'abc')).to_not be_valid
-      end
+    end
 
     it '3. Is not valid if title entered is not unique' do      
       first_category = Category.create(title: 'abcd')
       second_category = Category.create(title: 'abcd')
       expect(second_category).to_not be_valid
-      end      
+    end      
   end
 
   context "Functionalities" do
