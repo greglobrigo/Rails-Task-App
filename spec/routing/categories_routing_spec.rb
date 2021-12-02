@@ -19,7 +19,7 @@ RSpec.describe CategoriesController, type: :routing do
     end
 
 
-    it "5. POST method url: /categories routes to #create" do
+    it "5. POST method url: /categories routes to #create via POST" do
       expect(post: "/categories").to route_to("categories#create")
     end
 
@@ -31,7 +31,7 @@ RSpec.describe CategoriesController, type: :routing do
       expect(patch: "/categories/1").to route_to("categories#update", id: "1")
     end
 
-    it "8. DELETE method url: /categories/1 routes to destroy category with id 1" do
+    it "8. DELETE method url: /categories/1 routes to destroy category with id 1 via DELETE" do
       expect(delete: "/categories/1").to route_to("categories#destroy", id: "1")
     end
   end
