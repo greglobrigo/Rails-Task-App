@@ -3,10 +3,17 @@
 
 RSpec.describe "Category HTTP Request & Responses", type: :request do  
 
-  describe "GET /index" do
+  before do
+    sign_in create(:user)
+  end
+  
+  after :all do
+    User.destroy_all
+  end
+
+  describe "GET /index" do  
     it "1. Returns a successful response on home page" do      
-      get categories_url
-      expect(response).to be_successful
+      get categories_url      
       expect(response).to have_http_status(200)
       end
     end
@@ -14,16 +21,14 @@ RSpec.describe "Category HTTP Request & Responses", type: :request do
   describe "GET /show" do
     it "2. Returns a successful response on show page" do
         category = Category.create!(title: "Test Category")
-        get category_url(category)
-        expect(response).to be_successful
+        get category_url(category)        
         expect(response).to have_http_status(200)
       end
      end
 
-  describe "GET /new" do
+  describe "GET /new" do    
     it "3. Returns a successful response on new page" do
-        get new_category_url
-        expect(response).to be_successful
+        get new_category_url        
         expect(response).to have_http_status(200)
         end
      end
@@ -31,8 +36,7 @@ RSpec.describe "Category HTTP Request & Responses", type: :request do
   describe "GET /edit" do
     it "4. Returns a successful response on edit page" do
         category = Category.create!(title: "Test Category")
-        get edit_category_url(category)
-        expect(response).to be_successful
+        get edit_category_url(category)        
         expect(response).to have_http_status(200)
         end
      end
