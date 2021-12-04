@@ -7,9 +7,9 @@ RSpec.describe "Category HTTP Request & Responses", type: :request do
     sign_in create(:user)
   end
   
-  after :all do
-    User.destroy_all
-  end
+  # after :all do
+  #   User.destroy_all
+  # end
 
   describe "GET /index" do  
     it "1. Returns a successful response on home page" do      

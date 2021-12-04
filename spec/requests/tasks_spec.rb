@@ -5,9 +5,9 @@ RSpec.describe "Tasks HTTP Request & Responses", type: :request do
         sign_in create(:user)
       end
       
-      after :all do
-        User.destroy_all
-      end
+    #   after :all do
+    #     User.destroy_all
+    #   end
  
     # let!(:category) { Category.create!(title: "Test Category")}
     # let!(:task) { Task.create!(name: "Test Task", body: "Test Body", task_date: Date.current, category_id: category.id) }
