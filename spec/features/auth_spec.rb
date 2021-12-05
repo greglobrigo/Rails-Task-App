@@ -1,12 +1,6 @@
-RSpec.describe 'Auth', type: :feature do
+require 'rails_helper'
 
-    # before do
-    #     sign_in create(:user)
-    #   end
-      
-      after :all do
-        User.destroy_all
-      end
+RSpec.describe 'Auth', type: :feature do
     
     describe 'Home page' do
         it 'Should contain the log in and sign up page' do
@@ -44,8 +38,7 @@ RSpec.describe 'Auth', type: :feature do
     end
 
     describe 'Log out' do
-        it 'Should log out a user' do
-            User.destroy_all            
+        it 'Should log out a user' do                    
             user = create(:user)
             visit '/'
             fill_in 'Email', with: user.email
