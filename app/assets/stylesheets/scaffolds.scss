@@ -4,7 +4,7 @@ body {
   background-color: $primary-color;
 }
 
-h1, h2, h3, h4, h5, h6, p, label {
+h1, h2, h3, h4, h5, h6, p, label, i {
   color: $quaternary-color
 }
 
@@ -79,4 +79,8 @@ label {
   }
 }
 
-@import './navbar'
+@import './navbar';
+@import './login';
+@import './signup';
+@import './forgot-password.scss';
+@import './edit-profile.scss';
