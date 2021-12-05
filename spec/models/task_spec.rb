@@ -3,45 +3,29 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do   
   
   context "Validations" do
-    it "1. is valid only with valid attributes" do      
-      category = Category.create(title: "Test Category")
-      category.tasks.new(name: "Task 1", body: "Description 1", task_date: Time.now)
-      expect(category).to be_valid
-    end    
-  end
-
-  context "Functionalities" do
-    it '1. Can be created' do
-      task_count = Task.count
-      category = Category.create(title: "Test Category")
-      category.tasks.new(name: "Task 1", body: "Description 1", task_date: Time.now).save      
-      expect(category).to be_valid
-      expect(Task.count).to eq(task_count + 1)
+    it "1. Is not valid without a title" do
+      expect(Task.new(name: nil, body: "body", task_date: Date.today, category_id: 1)).to_not be_valid
     end
 
-    it '2. Can be read' do
-      category = Category.create(title: "Test Category")
-      time = Time.now
-      test_read_task = category.tasks.new(name: "Task 1", body: "Description 1", task_date: time).save
-      expect(category.tasks.last.name).to eq("Task 1")
-      expect(category.tasks.last.body).to eq("Description 1")      
+    it "2. Is not valid without a body" do
+      expect(Task.new(name: "name", body: nil, task_date: Date.today, category_id: 1)).to_not be_valid
     end
 
-    it '3. Can be updated' do
-      category = Category.create(title: "Test Category")
-      test_update_task = category.tasks.new(name: "Task 1", body: "Description 1", task_date: Time.now).save
-      category.tasks.last.update(name: "Task 2", body: "Description 2")
-      expect(category.tasks.last.name).to eq("Task 2")
-      expect(category.tasks.last.body).to eq("Description 2")
+    it "3. Is not valid without a task_date" do
+      expect(Task.new(name: "name", body: "body", task_date: nil, category_id: 1)).to_not be_valid
     end
 
-    it '4. Can be deleted' do      
-      category = Category.create(title: "Test Category")
-      category.tasks.new(name: "Task 1", body: "Description 1", task_date: Time.now).save    
-      category.tasks.find_by(name: "Task 1").destroy
-      expect(category.tasks.find_by(name: "Task 1")).to be_nil  
+    it "4. Is not valid without a category_id" do
+      expect(Task.new(name: "name", body: "body", task_date: Date.today, category_id: nil)).to_not be_valid
     end
-  end
 
- 
+    it "5. Its name length does not exceed 50 characters" do
+      expect(Task.new(name: "a"*51, body: "Body", task_date: Time.now, category_id: 1)).to_not be_valid
+    end
+
+    it "6. It belongs to the categories table (belongs_to)" do
+      expect(described_class.reflect_on_association(:category).macro).to eq(:belongs_to)
+    end
+   
+  end 
 end
