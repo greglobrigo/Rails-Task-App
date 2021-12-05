@@ -4,7 +4,7 @@ RSpec.describe 'Auth', type: :feature do
     
     describe 'Home page' do
         it 'Should contain the log in and sign up page' do
-        visit '/'
+        visit '/users/sign_in'
         expect(page).to have_content('Email')
         expect(page).to have_content('Password')
         expect(page).to have_content('Log in')
@@ -16,7 +16,7 @@ RSpec.describe 'Auth', type: :feature do
 
     describe 'Sign up' do
      it 'Should create a new user' do
-        visit '/'
+        visit '/users/sign_in'
         click_link 'Sign up'
         fill_in 'Email', with: 'example@email.com'
         fill_in 'Password', with: 'password'
@@ -29,7 +29,7 @@ RSpec.describe 'Auth', type: :feature do
     describe 'Log in' do    
      it 'Should log in a user' do
          user = create(:user)
-         visit '/'         
+         visit '/users/sign_in'
          fill_in 'Email', with: user.email
          fill_in 'Password', with: user.password
          click_button 'Log in'
@@ -40,13 +40,12 @@ RSpec.describe 'Auth', type: :feature do
     describe 'Log out' do
         it 'Should log out a user' do                    
             user = create(:user)
-            visit '/'
+            visit '/users/sign_in'
             fill_in 'Email', with: user.email
             fill_in 'Password', with: user.password
-            click_button 'Log in'
-            visit '/'
+            click_button 'Log in'            
             click_link 'Logout'
-            expect(page).to have_content('You need to sign in or sign up before continuing.')
+            expect(page).to have_content('Signed out successfully.')
         end
     end
     
