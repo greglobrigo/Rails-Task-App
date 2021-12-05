@@ -1,2 +1,17 @@
-<h1>Welcome!</h1>
-<%=link_to "Categories", categories_path%>
+<div class="home-container">
+  <div class="home-grid-item1">
+    <div class="home-img">
+      <%= image_tag("blog.svg", :alt => "blog-img") %>
+    </div>
+  </div>
+  <div class="home-grid-item2">
+    <h1>Losing track?<br/>
+      Don't fear,<br/>
+      Binder is here!</h1>
+    <%=link_to '/users/sign_in' do%>
+      <button class="home-cta">
+        Get Started 
+      </button>
+    <%end%>
+  </div>
+</div>

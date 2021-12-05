@@ -1,0 +1,25 @@
+@import '/variables';
+
+.navbar-home {
+  background-color: inherit;
+  border: none;
+//   width: calc(100% + 10px);
+  border-radius: calc(100px / 4);
+  transition: 0.5s;
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+    .home-links {
+        justify-content: unset;
+        display: flex;
+        flex-direction: column;       
+
+        .nav-link, .active {
+            padding: 8px 0
+        }
+    }
+}
