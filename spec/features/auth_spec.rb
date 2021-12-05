@@ -48,6 +48,13 @@ RSpec.describe 'Auth', type: :feature do
             click_link 'Logout'
             expect(page).to have_content('You need to sign in or sign up before continuing.')
         end
-    end  
+    end
+    
+    describe 'Unauthenticated user' do
+        it 'Should not be able to access the website' do
+            visit '/categories'
+            expect(page).to have_content('You need to sign in or sign up before continuing.')
+        end
+    end
    
 end
