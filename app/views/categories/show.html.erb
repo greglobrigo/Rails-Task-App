@@ -4,7 +4,10 @@
   <h1>Category Title:
   <%= @category.title %></h1>
   <div style="padding-left: 10px;">
-  <%= link_to 'Edit', edit_category_path(@category)%>  
+  <%= link_to 'Edit Category', edit_category_path(@category)%>  
+  </div>
+   <div style="padding-left: 10px;">
+  <%= link_to 'Delete Category', category_path(@category), method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
 
