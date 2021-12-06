@@ -1,3 +1,5 @@
+@import './variables';
+
 .devise-edit-profile {
     height: 90vh;
     padding: 0 20vw;
@@ -20,5 +22,20 @@
     grid-column: 2 / 2;    
     align-self: center;
     margin-left: 10%;
+}
+
+.cancel-account-buttons {
+    display: flex;
+    flex-direction: column;
+
+    .cancel-account-link {
+        background-color: #d11a2a;
+        border: none;
+        border-radius: 5px;        
+        padding: 5px 10px;
+        color: $quaternary-color;
+        text-align: center;
+        cursor: pointer;    
+    }
 }
 

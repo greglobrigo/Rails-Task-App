@@ -1,3 +1,255 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "./variables";
+
+//Category Dashboard
+.categories-dashboard-container {
+  display: grid;
+  padding: 0 20vw;
+}
+
+.category-header {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 150px;
+  align-items: center;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  h2 {
+    color: white;
+    padding: 25px 0;
+  }
+  .add-category-button {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: $quaternary-color;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
+.category-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: $tertiary-color;
+  border-radius: 10px;
+  margin: 25px 0;
+  padding: 0 150px;
+
+  .category-title {
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  .category-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .view-category {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: $quaternary-color;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
+//Category Details
+
+.category-show-container {
+  padding: 0 20vw;
+  display: grid;
+}
+
+.category-show-title-container {
+  margin-top: 2.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  padding: 25px 10vw;
+
+  .edit-category-button {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    color: $quaternary-color;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+
+  .delete-category-button {
+    background-color: #d11a2a;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px 10px;
+    color: $quaternary-color;
+    text-align: center;
+    cursor: pointer;    
+  }
+}
+
+.tasks-show-title-container {
+  display: flex;
+  margin-top: 2.5vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10vw;
+  background-color: $tertiary-color;
+  border-radius: 5px;
+
+  .add-task-button {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    color: $quaternary-color;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
+.tasks-table {
+  margin-top: 2.5vh;
+
+  td {
+    border: 1px solid $quaternary-color;
+    background-color: $secondary-color;
+    padding: 15px 0;
+  }
+  th {
+    padding: 10px 0;
+    background-color: $tertiary-color;
+    border: 1px solid $quaternary-color;
+  }
+
+  .edit-task-button {
+    border: none;
+    border-radius: 5px;
+    color: $quaternary-color;
+    background-color: $primary-color;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    a {
+      color: $quaternary-color;
+    }
+    &:hover {
+      a {
+        color: white;
+      }
+      background-color: green;
+    }
+  }
+
+  .delete-task-button {
+    border: none;
+    border-radius: 5px;
+    color: $quaternary-color;
+    background-color: #d11a2a;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    a {
+      color: $quaternary-color;
+    }
+  }
+}
+
+.back-button {
+  background-color: $tertiary-color;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10vh;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+  }
+}
+
+.add-new-and-edit-category-container {
+  height: 90vh;
+  padding: 0 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;   
+  grid-template-rows: 1fr; 
+}
+
+.add-new-and-edit-category-img-container {
+  grid-column: 1 / 2;    
+  align-self: center;
+}
+
+.add-new-and-edit-category-form {
+  grid-column: 2 / 2;    
+  align-self: center;
+  margin-left: 10%;
+}
+
+.navigation-button {
+  background-color: $tertiary-color;
+  border: none;
+  border-radius: 5px;  
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+  }
+}
+
+.actions input {
+  background-color: $tertiary-color;
+  border: none;
+  border-radius: 5px;  
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}

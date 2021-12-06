@@ -1,7 +1,8 @@
 @import '/variables';
 
-.navbar-home {
-  background-color: inherit;
+.navbar-shared {
+  background-color: $quaternary-color;
+  color: $primary-color;
   border: none;
 //   width: calc(100% + 10px);
   border-radius: calc(100px / 4);
@@ -10,6 +11,10 @@
     background-color: $secondary-color;
     color: white;
   }
+}
+
+.nav-username {
+  align-self: baseline;
 }
 
 @media screen and (max-width: 1000px) {

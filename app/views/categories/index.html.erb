@@ -1,26 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="categories-dashboard-container">
+  <div class="categories-dashboard">
+    <div class="category-header">
+      <div>
+        <h2>Task Categories</h1>
+      </div>
+      <div>
+        <%=link_to new_category_path do%>
+          <button class="add-category-button">Add Category</button>
+        <%end%>
+      </div>
+    </div>
     <% @categories.each do |category| %>
-      <tr>        
-              
-        <td><%= link_to "#{category.title}", category %></td>      
-      </tr>
+      <div class="category-container">
+        <div class="category-details">
+          <div class="category-title"><%=category.title%></div>
+          <div>Started at: <%=category.created_at.strftime("%B %d, %Y")%></div>
+        </div>
+        <div class="category-details">
+          <div>No. of Tasks: <%=category.tasks.count%></div>
+          <div>
+            <%=link_to category do%>
+              <button class="view-category">View Category</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %> <br/>
-<%=link_to 'Home', root_path %>
+  </div>
+</div>

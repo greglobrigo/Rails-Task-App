@@ -4,8 +4,12 @@ body {
   background-color: $primary-color;
 }
 
-h1, h2, h3, h4, h5, h6, p, label, i {
+h1, h2, h3, h4, h5, h6, p, label, i, td, th {
   color: $quaternary-color
+}
+
+a {
+  text-decoration: none;
 }
 
 body, p, ol, ul, td {
@@ -59,7 +63,7 @@ div.actions {
 label {
   display: block; }
 
-.alert {
+.alert, .alert-success {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -83,4 +87,3 @@ label {
 @import './login';
 @import './signup';
 @import './forgot-password.scss';
-@import './edit-profile.scss';

@@ -36,7 +36,14 @@
       </div>
     <% end %>
     <h3>Cancel my account</h3>
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-    <%= link_to "Back", :back %>
+    <p>Unhappy?</p>
+    <div class="cancel-account-buttons">
+    <%= link_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete do%>
+      <button class="cancel-account-link">Cancel my account</button>
+    <%end%>
+    <%= link_to :back do%>
+      <button class="navigation-button" style="margin-top: 25px">Back</button>
+    <%end%>
+    </div>
   </div>
 </div>

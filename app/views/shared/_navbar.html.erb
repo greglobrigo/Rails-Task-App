@@ -6,25 +6,48 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%=link_to root_path, class: "nav-link active" do%>
-            <button class="navbar-home">
-              Home
-            </button>
-          <%end%>
-        </li>
+        <% if user_signed_in? %>
+          <%=link_to categories_path, class: "nav-link active" do%>
+            <li class="nav-item">
+              <button class="navbar-shared">
+                Dashboard
+              </button>
+            </li>
+          <%end%>       
+        <%else%>
+          <li class="nav-item">
+            <%=link_to root_path, class: "nav-link active" do%>
+              <button class="navbar-shared">
+                Home
+              </button>
+            <%end%>
+          </li>
+        <%end%>
       </ul>
       <div class="d-flex home-links">
-        <%=link_to '/users/sign_in', class: "nav-link active" do%>
-          <button class="navbar-home">
-            Sign in
-          </button>
-        <%end%>
-        <%=link_to '/users/sign_up', class: "nav-link active" do%>
-          <button class="navbar-home">
-            Sign up
-          </button>
-        <%end%>
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path, :class => 'nav-link active' do%>
+            <button class="navbar-shared">
+              Edit Profile
+            </button>
+          <%end%>
+          <%= link_to destroy_user_session_path, method: :delete, :class => 'nav-link active', data: { confirm: 'Are you sure you want to sign out?' } do%>
+            <button class="navbar-shared">
+              Logout
+            </button>
+          <%end%>
+        <%else%>
+          <%=link_to '/users/sign_in', class: "nav-link active" do%>
+            <button class="navbar-shared">
+              Sign in
+            </button>
+          <%end%>
+          <%=link_to '/users/sign_up', class: "nav-link active" do%>
+            <button class="navbar-shared">
+              Sign up
+            </button>
+          <%end%>
+        <% end %>
       </div>
     </div>
   </div>
