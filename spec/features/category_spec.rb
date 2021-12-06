@@ -9,7 +9,7 @@ RSpec.describe 'Category', type: :feature do
     describe 'Create' do
         it '1. Should create a new category' do
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
             expect(page).to have_content('Category was successfully created.')
@@ -19,7 +19,7 @@ RSpec.describe 'Category', type: :feature do
     describe 'Read' do
         it '2. Should show all categories' do
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
             expect(page).to have_content('Test Category')     
@@ -29,12 +29,12 @@ RSpec.describe 'Category', type: :feature do
     describe 'Update' do
         it '3. Should edit a category' do            
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
             visit '/categories'
-            click_link 'Test Category'
-            click_link 'Edit Category'
+            click_link 'View Category'
+            click_link 'Edit Category Name'
             fill_in 'Title', with: 'Test Category Edited'
             click_button 'Update Category'
             expect(page).to have_content('Test Category Edited')
@@ -44,11 +44,11 @@ RSpec.describe 'Category', type: :feature do
     describe 'Delete' do
         it '4. Should delete a category' do
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
             visit '/categories'
-            click_link 'Test Category'
+            click_link 'View Category'
             click_link 'Delete Category'
             expect(page).to have_content('Category was successfully destroyed.')
             expect(page).to_not have_content('Test Category')

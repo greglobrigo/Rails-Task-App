@@ -9,31 +9,31 @@ RSpec.describe 'Task', type: :feature do
     describe '1. Create' do
         it 'Should create a new task' do
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
-            click_link 'Test Category'
-            click_link 'New Task'
+            click_link 'View Category'
+            click_link 'Add Task'
             fill_in 'Name', with: 'Test Task'
             fill_in 'Body', with: 'Test Body'            
             click_button 'Create Task'
-            expect(page).to have_content 'Task was successfully created.'            
+            expect(page).to have_content 'Task was successfully created.'                        
         end
     end   
 
     describe '2. Read' do
         it 'Should read a task' do
             visit '/categories'
-            click_link 'New Category'
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
-            click_link 'Test Category'
-            click_link 'New Task'
+            click_link 'View Category'
+            click_link 'Add Task'
             fill_in 'Name', with: 'Test Task'
-            fill_in 'Body', with: 'Test Body'            
+            fill_in 'Body', with: 'Test Body'                                    
             click_button 'Create Task'
             visit '/categories'
-            click_link 'Test Category'
+            click_link 'View Category'
             expect(page).to have_content 'Test Task'
             expect(page).to have_content 'Test Body'
         end
@@ -41,39 +41,38 @@ RSpec.describe 'Task', type: :feature do
 
     describe '3. Update' do
         it 'Should update a task' do
-            visit '/categories'
-            click_link 'New Category'
+            visit '/categories' 
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
-            click_link 'Test Category'
-            click_link 'New Task'
+            click_link 'View Category'
+            click_link 'Add Task'
             fill_in 'Name', with: 'Test Task'
-            fill_in 'Body', with: 'Test Body'            
+            fill_in 'Body', with: 'Test Body'          
             click_button 'Create Task'
             visit '/categories'
-            click_link 'Test Category'
+            click_link 'View Category'
             click_link 'Edit'
             fill_in 'Name', with: 'Test Task --edited'
             fill_in 'Body', with: 'Test Body --edited'
             click_button 'Update Task'
             expect(page).to have_content 'Task was successfully updated.'
             expect(page).to have_content 'Test Task --edited'
+            expect(page).to have_content 'Test Body --edited'
         end
     end
 
     describe '4. Delete' do
         it 'Should delete a task' do
-            visit '/categories'
-            click_link 'New Category'
+            visit '/categories' 
+            click_link 'Add Category'
             fill_in 'Title', with: 'Test Category'
             click_button 'Create Category'
-            click_link 'Test Category'
-            click_link 'New Task'
+            click_link 'View Category'
+            click_link 'Add Task'
             fill_in 'Name', with: 'Test Task'
-            fill_in 'Body', with: 'Test Body'            
-            click_button 'Create Task'
-            visit '/categories'
-            click_link 'Test Category'
+            fill_in 'Body', with: 'Test Body'          
+            click_button 'Create Task'            
             click_link 'Delete'
             expect(page).to have_content 'Task was successfully destroyed.'
             expect(page).not_to have_content 'Test Task'
