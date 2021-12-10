@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_12_03_113209) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
