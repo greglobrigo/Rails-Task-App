@@ -17,14 +17,24 @@
   align-self: baseline;
 }
 
-@media screen and (max-width: 1000px) {
+.navbar-container {
+  padding: 0 20vw;
+}
+
+@media screen and (max-width: 990px) {
     .home-links {
         justify-content: unset;
         display: flex;
-        flex-direction: column;       
+        flex-direction: column;
+        transform: translateY(-7.5px);       
 
         .nav-link, .active {
             padding: 8px 0
         }
     }
+    .navbar-container {
+      padding: 0 5vw;
+    }
 }
+
+
