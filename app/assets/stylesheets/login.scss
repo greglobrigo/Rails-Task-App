@@ -17,8 +17,7 @@
 
 .login-img {
   height: 90%;
-  width: 90%;
-  
+  width: 90%;  
 }
 
 .login-form-container {
@@ -32,6 +31,7 @@
     display: block;
     padding-top: 10vh;
   }
+
   .login-img-container {
     display: flex;
     justify-content: center;
@@ -42,9 +42,9 @@
     }
   }
 
-  .login-form-container {
-    margin-left: 5vw;
+  .login-form-container {    
     display: flex;
+    margin: 0;
     justify-content: center;
   }
 }

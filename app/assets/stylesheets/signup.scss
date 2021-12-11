@@ -19,6 +19,27 @@
 .signup-form {
     grid-column: 2 / 2;    
     align-self: center;
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
+@media screen and (max-width: 900px) {
+    .devise-signup {
+      display: block;
+      padding-top: 10vh;
+    }
+    .signup-img-container {
+      display: flex;
+      justify-content: center;
+  
+      .signup-img  {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  
+    .signup-form {      
+      display: flex;
+      margin: 0;
+      justify-content: center;
+    }
+  }
