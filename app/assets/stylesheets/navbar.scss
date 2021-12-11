@@ -4,6 +4,7 @@
   background-color: $quaternary-color;
   color: $primary-color;
   border: none;
+  font-weight: bold;
 //   width: calc(100% + 10px);
   border-radius: calc(100px / 4);
   transition: 0.5s;
@@ -19,6 +20,12 @@
 
 .navbar-container {
   padding: 0 20vw;
+}
+
+.navbar-brand {
+  color: $primary-color !important;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 990px) {
