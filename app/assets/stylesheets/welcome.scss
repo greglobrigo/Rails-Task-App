@@ -30,6 +30,11 @@ $quaternary-color: #bbe1fa;
   height: 100%;
 }
 
+.binder {
+  color: $secondary-color;
+  font-size: 3rem;  
+}
+
 .home-cta {
   background-color: $tertriary-color;
   color: white;
@@ -47,6 +52,9 @@ $quaternary-color: #bbe1fa;
 }
 
 @media screen and (max-width: 900px) {
+  .binder {
+    font-size: unset;
+  }
   .home-container {
     display: block;
     padding-top: 20vh;

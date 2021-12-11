@@ -1,13 +1,15 @@
 <div class="home-container">
   <div class="home-grid-item1">
     <div class="home-img">
+    <a href="https://storyset.com/" target="_blank">
       <%= image_tag("blog.svg", :alt => "blog-img") %>
+      </a>
     </div>
   </div>
   <div class="home-grid-item2">
     <h1>Losing track?<br/>
       Don't fear,<br/>
-      Binder is here!</h1>
+      <span class="binder">Binder</span> is here!</h1>
     <%=link_to '/users/sign_in' do%>
       <button class="home-cta">
         Get Started 

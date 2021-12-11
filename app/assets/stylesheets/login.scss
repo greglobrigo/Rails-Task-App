@@ -1,26 +1,50 @@
-@import './variables';
+@import "./variables";
 
 .devise-login {
-    height: 90vh;
-    padding: 0 20vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;   
-    grid-template-rows: 1fr; 
+  height: 90vh;
+  padding: 0 20vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .login-img-container {
-    grid-column: 1 / 2;    
-    align-self: center;
+  grid-column: 1 / 2;
+  align-self: center;
+  display: flex;
+  justify-content: center;
 }
 
 .login-img {
-    height: 90%;
-    width: 90%;
+  height: 90%;
+  width: 90%;
+  
 }
 
-.login-form {
-    grid-column: 2 / 2;    
-    align-self: center;
-    margin-left: 10%;
+.login-form-container {
+  grid-column: 2 / 2;
+  align-self: center;
+  margin-left: 20%;
 }
 
+@media screen and (max-width: 900px) {
+  .devise-login {
+    display: block;
+    padding-top: 10vh;
+  }
+  .login-img-container {
+    display: flex;
+    justify-content: center;
+
+    .login-img {
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  .login-form-container {
+    margin-left: 5vw;
+    display: flex;
+    justify-content: center;
+  }
+}
